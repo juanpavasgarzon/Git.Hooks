@@ -2,10 +2,15 @@
 
 BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
 
+if [[ "$BRANCH_NAME" == "master" ]]; then
+    exit 0
+fi
+
 if [[ ! "$BRANCH_NAME" =~ ^(release/|bugfix/|hotfix/) ]]; then
     echo "❌ ERROR: Branch name must start with 'release/', 'bugfix/', or 'hotfix/'"
     exit 1
 fi
+
 
 echo "✅ Branch name validated successfully: $BRANCH_NAME"
 exit 0

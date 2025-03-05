@@ -30,7 +30,7 @@ elif [[ "$SOURCE_BRANCH" == hotfix/* ]]; then
     PATCH=$((PATCH + 1))
 else
     echo "❌ No versioning applied. Branch does not match release, bugfix, or hotfix."
-    exit 0
+    exit 1
 fi
 
 # Create and push the new version tag
