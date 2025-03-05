@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Get the target branch name from arguments
+BRANCH_NAME=$1
+
+# Ensure the branch starts with release/, bugfix/, or hotfix/
+if [[ ! "$BRANCH_NAME" =~ ^(release/|bugfix/|hotfix/) ]]; then
+    echo "❌ ERROR: Branch name must start with 'release/', 'bugfix/', or 'hotfix/'"
+    exit 1
+fi
+
+echo "✅ Branch name validated successfully: $BRANCH_NAME"
+exit 0
